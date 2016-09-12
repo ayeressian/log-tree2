@@ -1,11 +1,8 @@
 (function() {
   'use strict';
-  // const HOST = 'http://54.149.208.215:8880/';
-  //
-  // 192.168.4.56
-  //
-  //
-  const HOST = 'http://192.168.4.56:4242/';
+  const HOST = 'http://54.149.208.215:8880/';
+
+  // const HOST = 'http://192.168.4.56:4242/';
   const MARGIN_AMOUNT = 20;
   const REFRESH_INTERVAL = 2000;
 
