@@ -6,6 +6,9 @@
   const MARGIN_AMOUNT = 20;
   const REFRESH_INTERVAL = 2000;
 
+  let newDatasCheck = new Set();
+  let newItemId;
+
   function recursion(data, level) {
     data.forEach(item => {
       let $main = $('<div>');
@@ -18,15 +21,35 @@
       $div.html(`<b>${item.name}</b> ${item.description}`);
       $main.append($div);
       $main.css('margin-left', (level * 20) + 'px');
+      $main.attr('id', item.id);
       $('body').append($main);
+
+      if (!newDatasCheck.has(item.id)) {
+        newDatasCheck.add(item.id);
+        newItemId = item.id;
+      }
+
       if (item.children && item.children.length) recursion(item.children, level + 1);
     });
   }
 
+  let firstTimeLoad = true;
+
   setInterval(() => {
     $.get(`${HOST}v1/me/serviceTree`, data => {
       $('body > div').remove();
-      if(data && data.data) recursion(data.data, 0);
+      newItemId = null;
+      if(data && data.data) {
+        recursion(data.data, 0);
+      }
+      if (!firstTimeLoad) {
+        if (newItemId) {
+          location.href = '#';
+          location.href = '#' + newItemId;
+        }
+      } else {
+        firstTimeLoad = false;
+      }
     });
   }, REFRESH_INTERVAL);
 })();
