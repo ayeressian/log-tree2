@@ -1,0 +1,32 @@
+@font-face {
+    font-family: SourceSansPro;
+    src: url('source-sans-pro/SourceSansPro-Regular.otf');
+}
+
+@font-face {
+    font-family: SourceSansPro;
+    font-weight: bold;
+    src: url('source-sans-pro/SourceSansPro-Bold.otf');
+}
+
+body {
+    background-color: #232323;
+    margin: 0;
+}
+
+* {
+    color: #fff;
+    font-family: SourceSansPro;
+    font-size:18px;
+}
+
+body > div {
+  clear:both;
+  height: 60px;
+}
+body > div > div {
+  float: left;
+  height: 60px;
+  line-height: 60px;
+  margin-left: 10px;
+}
