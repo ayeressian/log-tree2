@@ -3,7 +3,7 @@
   const HOST = 'http://54.149.208.215:8880/';
 
   // const HOST = 'http://192.168.4.56:4242/';
-  const MARGIN_AMOUNT = 20;
+  const MARGIN_AMOUNT = 50;
   const REFRESH_INTERVAL = 2000;
 
   let newDatasCheck = new Set();
@@ -20,7 +20,7 @@
       $div = $('<div>');
       $div.html(`<b>${item.name}</b> ${item.description}`);
       $main.append($div);
-      $main.css('margin-left', (level * 20) + 'px');
+      $main.css('margin-left', (level * MARGIN_AMOUNT) + 'px');
       $main.attr('id', item.id);
       $('body').append($main);
 
